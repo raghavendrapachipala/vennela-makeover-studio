@@ -479,85 +479,6 @@
             color: var(--color-cream);
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(201,169,98,0.2);
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(201,169,98,0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .service-card:hover {
-            border-color: var(--color-gold);
-            transform: translateY(-10px);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            border: 1px solid var(--color-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-gold);
-            font-style: italic;
-        }
-
-        .service-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-cream);
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        .service-price {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(201,169,98,0.2);
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--color-gold);
-            font-style: italic;
-        }
-
         /* Gallery Section - Instagram Feed Style */
         .gallery {
             background: var(--color-cream);
@@ -1124,10 +1045,302 @@
             opacity: 1;
         }
 
+        /* Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201,169,98,0.2);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .package-card.featured {
+            border-color: var(--color-gold);
+            transform: scale(1.05);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-gold);
+            color: var(--color-soft-black);
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .package-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-10px);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .package-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-cream);
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .package-cta {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .package-cta:hover {
+            background: var(--color-gold);
+            color: var(--color-soft-black);
+        }
+
+        /* Instagram Feed Section */
+        .instagram-feed {
+            background: var(--color-cream);
+            padding: 6rem 5%;
+        }
+
+        .insta-placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .insta-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--color-champagne), var(--color-rose));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .insta-item:hover {
+            transform: scale(1.02);
+        }
+
+        .insta-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: rgba(201, 169, 98, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .insta-overlay span {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--color-gold-dark);
+            font-style: italic;
+        }
+
+        .insta-item:hover .insta-overlay {
+            background: rgba(201, 169, 98, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--color-cream);
+            padding: 6rem 5%;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(201,169,98,0.3);
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question span:first-child {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-charcoal);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            padding: 0 0 1.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Lead Capture Section */
+        .lead-capture {
+            background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .lead-capture-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lead-capture h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-soft-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .lead-capture p {
+            color: rgba(0,0,0,0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .lead-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lead-form input {
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            min-width: 280px;
+            font-family: var(--font-body);
+        }
+
+        .lead-form button {
+            padding: 1rem 2rem;
+            background: var(--color-soft-black);
+            color: var(--color-gold);
+            border: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .lead-form button:hover {
+            background: var(--color-charcoal);
+        }
+
+        .lead-note {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: rgba(0,0,0,0.5);
+        }
+
+        /* Mobile Book Now Button */
+        .mobile-book-btn {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-gold);
+            color: var(--color-soft-black);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            z-index: 998;
+            box-shadow: 0 4px 20px rgba(201,169,98,0.4);
+            font-family: var(--font-body);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .services-grid {
+            .packages-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .package-card.featured {
+                transform: none;
             }
 
             .gallery-grid {
@@ -1137,6 +1350,10 @@
 
             .reels-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .insta-placeholder-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1208,12 +1425,16 @@
                 font-size: 0.6rem;
             }
 
-            .services-grid {
+            .packages-grid {
                 grid-template-columns: 1fr;
             }
 
-            .service-card {
+            .package-card {
                 padding: 2rem 1.5rem;
+            }
+
+            .package-card.featured {
+                transform: none;
             }
 
             .gallery-grid {
@@ -1256,6 +1477,34 @@
 
             .gallery-follow .follow-handle {
                 font-size: 0.75rem;
+            }
+
+            .insta-placeholder-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .instagram-feed {
+                padding: 4rem 5%;
+            }
+
+            .faq {
+                padding: 4rem 5%;
+            }
+
+            .faq-question span:first-child {
+                font-size: 1rem;
+            }
+
+            .lead-capture h3 {
+                font-size: 1.5rem;
+            }
+
+            .lead-form input {
+                min-width: 100%;
+            }
+
+            .mobile-book-btn {
+                display: block;
             }
 
             .reels-grid {
@@ -1392,6 +1641,14 @@
                 font-size: 0.7rem;
             }
 
+            .insta-placeholder-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .insta-overlay span {
+                font-size: 0.85rem;
+            }
+
             .reels-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.8rem;
@@ -1411,6 +1668,33 @@
 
             .contact-details li {
                 font-size: 0.8rem;
+            }
+
+            .package-price {
+                font-size: 1.6rem;
+            }
+
+            .package-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .faq-question span:first-child {
+                font-size: 1rem;
+                padding-right: 1rem;
+            }
+
+            .lead-capture {
+                padding: 3rem 5%;
+            }
+
+            .lead-capture h3 {
+                font-size: 1.3rem;
+            }
+
+            .mobile-book-btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.7rem;
+                bottom: 70px;
             }
         }
     </style>
@@ -1432,10 +1716,11 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#services">Packages</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#reels">Reels</a></li>
             <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#booking">Book Now</a></li>
         </ul>
         <div class="menu-toggle">
@@ -1499,51 +1784,79 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services/Packages Section -->
     <section class="services" id="services">
         <div class="section-header">
             <span class="section-label">What We Offer</span>
-            <h2 class="section-title">Our <em>Services</em></h2>
+            <h2 class="section-title">Our <em>Packages</em></h2>
             <div class="gold-divider"></div>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">B</div>
-                <h4>Bridal Makeup</h4>
-                <p>Exquisite bridal looks crafted to perfection, blending traditional elegance with contemporary trends for your most memorable day.</p>
-                <div class="service-price">Contact for Pricing</div>
+        
+        <div class="packages-grid">
+            <!-- Bridal Package -->
+            <div class="package-card featured">
+                <div class="package-badge">Most Popular</div>
+                <div class="package-icon">👰</div>
+                <h3>Bridal Package</h3>
+                <div class="package-price">₹15,000+</div>
+                <ul class="package-features">
+                    <li>✓ HD Bridal Makeup</li>
+                    <li>✓ Bridal Hair Styling</li>
+                    <li>✓ Saree Draping</li>
+                    <li>✓ Pre-Wedding Trial</li>
+                    <li>✓ Touch-up Kit</li>
+                    <li>✓ On-location Service</li>
+                </ul>
+                <a href="#booking" class="package-cta">Book Now</a>
             </div>
-            <div class="service-card">
-                <div class="service-icon">E</div>
-                <h4>Engagement & Pre-Wedding</h4>
-                <p>Stunning looks for your engagement ceremony, pre-wedding shoots, and all the celebrations leading to your big day.</p>
-                <div class="service-price">Contact for Pricing</div>
+            
+            <!-- Engagement Package -->
+            <div class="package-card">
+                <div class="package-icon">💍</div>
+                <h3>Engagement Package</h3>
+                <div class="package-price">₹8,000+</div>
+                <ul class="package-features">
+                    <li>✓ HD Makeup</li>
+                    <li>✓ Hair Styling</li>
+                    <li>✓ Saree/Lehenga Draping</li>
+                    <li>✓ False Lashes</li>
+                    <li>✓ Touch-up Kit</li>
+                </ul>
+                <a href="#booking" class="package-cta">Book Now</a>
             </div>
-            <div class="service-card">
-                <div class="service-icon">P</div>
-                <h4>Party & Event Makeup</h4>
-                <p>Glamorous makeovers for parties, receptions, and special occasions that make you stand out.</p>
-                <div class="service-price">Contact for Pricing</div>
+            
+            <!-- Party Makeup -->
+            <div class="package-card">
+                <div class="package-icon">✨</div>
+                <h3>Party Makeup</h3>
+                <div class="package-price">₹3,000+</div>
+                <ul class="package-features">
+                    <li>✓ Party Glam Makeup</li>
+                    <li>✓ Hair Styling</li>
+                    <li>✓ False Lashes</li>
+                    <li>✓ Touch-up Tips</li>
+                </ul>
+                <a href="#booking" class="package-cta">Book Now</a>
             </div>
-            <div class="service-card">
-                <div class="service-icon">H</div>
-                <h4>Hair Styling</h4>
-                <p>From classic updos to modern styles, expert hair artistry that complements your overall look beautifully.</p>
-                <div class="service-price">Contact for Pricing</div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">S</div>
-                <h4>Saree Draping</h4>
-                <p>Professional saree draping in various traditional and contemporary styles to enhance your elegance.</p>
-                <div class="service-price">Contact for Pricing</div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">M</div>
-                <h4>Mehendi</h4>
-                <p>Intricate and beautiful mehendi designs ranging from traditional patterns to modern artistic expressions.</p>
-                <div class="service-price">Contact for Pricing</div>
+            
+            <!-- Mehendi Package -->
+            <div class="package-card">
+                <div class="package-icon">🌿</div>
+                <h3>Mehendi</h3>
+                <div class="package-price">₹2,000+</div>
+                <ul class="package-features">
+                    <li>✓ Bridal Full Hands</li>
+                    <li>✓ Bridal Full Feet</li>
+                    <li>✓ Traditional/Modern Designs</li>
+                    <li>✓ Natural Henna</li>
+                </ul>
+                <a href="#booking" class="package-cta">Book Now</a>
             </div>
         </div>
+        
+        <p style="text-align: center; color: rgba(255,255,255,0.5); margin-top: 2rem; font-size: 0.85rem;">
+            *Prices may vary based on requirements. Contact for custom packages.
+        </p>
     </section>
 
     <!-- Gallery Section -->
@@ -1706,17 +2019,94 @@
         </div>
         <div class="testimonials-slider">
             <div class="testimonial active">
-                <p class="testimonial-text">"Vennela transformed me into the bride I always dreamed of being. Her attention to detail and understanding of what I wanted was incredible. I received so many compliments!"</p>
+                <p class="testimonial-text">"Rajithha made all my bridal makeup dreams come true. She was INCREDIBLE to work with! She really listened and understood exactly what I wanted. My makeup lasted the entire day and I received so many compliments!"</p>
                 <div class="testimonial-author">
                     <span class="author-name">Priya Sharma</span>
-                    <span class="author-title">Bride, December 2024</span>
+                    <span class="author-title">Bride, Hyderabad</span>
                 </div>
             </div>
             <div class="testimonial-dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <span class="section-label">Questions</span>
+            <h2 class="section-title">Frequently <em>Asked</em></h2>
+            <div class="gold-divider"></div>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide on-location services?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We provide on-location bridal makeup services across Armoor, Nizamabad, Hyderabad, and nearby areas. Travel charges may apply for distant locations.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How far in advance should I book?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend booking at least 2-3 months in advance for bridal services, especially during wedding season (October-February). For other events, 2-3 weeks notice is ideal.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer bridal trials?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Bridal trials are included in our Bridal Package. This helps us understand your preferences and ensure you're 100% happy with your wedding day look.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What products do you use?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We use high-quality, long-lasting professional makeup brands that are suitable for all skin types. Products include MAC, Huda Beauty, Kryolan, and premium Indian brands.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can you do makeup for the entire bridal party?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We can accommodate bridesmaids, mothers, and other family members. Contact us for group pricing and packages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Section -->
+    <section class="lead-capture">
+        <div class="lead-capture-content">
+            <h3>Get Your FREE Bridal Makeup Checklist!</h3>
+            <p>Download our comprehensive guide to prepare for your perfect bridal look</p>
+            <form class="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Send Me The Checklist</button>
+            </form>
+            <span class="lead-note">We respect your privacy. No spam, ever.</span>
         </div>
     </section>
 
@@ -1802,6 +2192,62 @@
         </svg>
     </a>
 
+    <!-- Instagram Feed Section -->
+    <section class="instagram-feed" id="instagram">
+        <div class="section-header">
+            <span class="section-label">Follow Along</span>
+            <h2 class="section-title">
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" style="color: inherit; text-decoration: none;">
+                    @vennela_makeover_hairstylist
+                </a>
+            </h2>
+            <div class="gold-divider"></div>
+        </div>
+        
+        <!-- Instagram Embed Container - Replace inner content with Elfsight/Curator widget code -->
+        <div class="instagram-grid" id="instagram-widget">
+            <!-- Placeholder grid until widget is added -->
+            <div class="insta-placeholder-grid">
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>👰 Bridal</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>💄 Makeup</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>💇‍♀️ Hair</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>🌿 Mehendi</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>👗 Saree</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="insta-item">
+                    <div class="insta-overlay">
+                        <span>✨ View All</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="hero-cta">
+                Follow Us on Instagram
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-logo">Vennela Makeover Studio</div>
@@ -1813,15 +2259,19 @@
         <div class="footer-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#services">Packages</a>
             <a href="#gallery">Gallery</a>
             <a href="#reels">Reels</a>
+            <a href="#faq">FAQ</a>
             <a href="#booking">Contact</a>
         </div>
         <div class="footer-bottom">
             <p>© 2025 Vennela Makeover Studio. All rights reserved. | Armoor, Telangana, India</p>
         </div>
     </footer>
+
+    <!-- Mobile Book Now Button -->
+    <a href="#booking" class="mobile-book-btn">Book Now</a>
 
     <script>
         // Navigation scroll effect
@@ -1868,19 +2318,34 @@
         // Testimonial slider
         const testimonials = [
             {
-                text: "Vennela transformed me into the bride I always dreamed of being. Her attention to detail and understanding of what I wanted was incredible. I received so many compliments!",
+                text: "Rajithha made all my bridal makeup dreams come true. She was INCREDIBLE to work with! She really listened and understood exactly what I wanted. My makeup lasted the entire day and I received so many compliments!",
                 name: "Priya Sharma",
-                title: "Bride, December 2024"
+                title: "Bride, Hyderabad"
             },
             {
-                text: "The best makeup artist! My engagement look was absolutely stunning. Rajithha is so talented and makes you feel so comfortable.",
+                text: "The best makeup artist in Armoor! My engagement look was absolutely stunning. Rajithha is so talented and makes you feel so comfortable. The mehendi designs were also beautiful!",
                 name: "Sneha Reddy",
-                title: "Bride, November 2024"
+                title: "Engagement Client"
             },
             {
-                text: "I highly recommend Vennela Makeover Studio for any bride. The bridal package was worth every penny. My mehendi and makeup were flawless!",
+                text: "I highly recommend Vennela Makeover Studio for any bride. The bridal package was worth every penny. My makeup, hair, and saree draping were all flawless! She's truly an artist.",
                 name: "Ananya Krishnan",
-                title: "Bride, October 2024"
+                title: "Bride, Nizamabad"
+            },
+            {
+                text: "Rajithha did my makeup for my sister's wedding and I was amazed! She understood my skin tone perfectly and created a look that was glamorous yet natural. Will definitely book again!",
+                name: "Kavitha Rao",
+                title: "Party Makeup Client"
+            },
+            {
+                text: "The hair styling was exceptional! I wanted a traditional look with modern touches and Rajithha delivered exactly that. My saree draping was also perfect. Highly recommended!",
+                name: "Divya Reddy",
+                title: "Reception Makeup"
+            },
+            {
+                text: "I traveled from Hyderabad specifically to get my bridal makeup done by Vennela Makeover Studio after seeing their Instagram. Best decision ever! Worth every rupee.",
+                name: "Meghana Sharma",
+                title: "Bride, December 2024"
             }
         ];
 
@@ -1925,11 +2390,27 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .gallery-item, .about-content, .about-image, .reel-card').forEach(el => {
+        document.querySelectorAll('.package-card, .gallery-item, .about-content, .about-image, .reel-card, .faq-item, .insta-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
