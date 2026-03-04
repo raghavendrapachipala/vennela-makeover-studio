@@ -451,60 +451,66 @@
             animation: shimmer 3s ease-in-out infinite;
         }
 
-        .about-image-styled .instagram-icon {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--color-gold);
-            border-radius: 14px;
+        /* About placeholder - SVG camera icon design */
+        .about-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(145deg, #f5f0e8 0%, #e8ddd0 50%, #d4c5b0 100%);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,169,98,0.08) 0%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .placeholder-content {
+            text-align: center;
             z-index: 1;
-            transition: all 0.3s ease;
         }
 
-        .about-image-styled:hover .instagram-icon {
-            background: var(--color-gold);
+        .placeholder-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.4;
         }
 
-        .about-image-styled .instagram-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--color-gold);
-            transition: fill 0.3s ease;
+        .placeholder-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--color-gold-dark);
         }
 
-        .about-image-styled:hover .instagram-icon svg {
-            fill: var(--color-soft-black);
-        }
-
-        .about-image-styled .view-text {
+        .placeholder-text {
             font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--color-charcoal);
+            font-size: 1rem;
+            color: var(--color-gold-dark);
             font-style: italic;
-            z-index: 1;
+            opacity: 0.6;
             margin-bottom: 0.5rem;
         }
 
-        .about-image-styled .handle {
+        .placeholder-link {
             font-family: var(--font-body);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--color-gold);
-            letter-spacing: 0.05em;
-            font-weight: 500;
-            z-index: 1;
-            margin-bottom: 0.3rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
         }
 
-        .about-image-styled .followers {
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 0.1em;
-            z-index: 1;
-            opacity: 0.7;
+        .placeholder-link:hover {
+            opacity: 0.8;
         }
 
         /* For real images */
@@ -567,38 +573,38 @@
             color: var(--color-cream);
         }
 
-        /* Gallery Section - Auto-Scrolling Banner */
-        .gallery {
+        /* Gallery Section - Beautiful Auto-Scrolling Portfolio */
+        .portfolio-gallery {
             background: var(--color-cream);
             padding-bottom: 4rem;
             overflow: hidden;
         }
 
-        .gallery-banner-wrapper {
+        .gallery-showcase {
             overflow: hidden;
             width: 100%;
         }
 
-        .gallery-row {
+        .gallery-track {
             overflow: hidden;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
         }
 
-        .gallery-scroll-track {
+        .gallery-slider {
             display: flex;
             gap: 1.5rem;
             width: max-content;
         }
 
-        .gallery-scroll-track.scroll-left {
-            animation: scrollLeft 40s linear infinite;
+        .gallery-slider.scroll-left {
+            animation: scrollLeft 35s linear infinite;
         }
 
-        .gallery-scroll-track.scroll-right {
-            animation: scrollRight 40s linear infinite;
+        .gallery-slider.scroll-right {
+            animation: scrollRight 35s linear infinite;
         }
 
-        .gallery-banner-wrapper:hover .gallery-scroll-track {
+        .gallery-showcase:hover .gallery-slider {
             animation-play-state: paused;
         }
 
@@ -613,91 +619,126 @@
         }
 
         .gallery-card {
-            width: 300px;
-            height: 380px;
-            border-radius: 16px;
+            width: 280px;
+            height: 350px;
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
             cursor: pointer;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-decoration: none;
         }
 
         .gallery-card:hover {
-            transform: scale(1.04);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            transform: scale(1.05);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
         }
 
-        .gallery-card-bg {
+        .card-image {
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             position: relative;
         }
 
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-card:hover .card-overlay {
-            opacity: 1;
-        }
-
-        .card-overlay .card-category {
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-gold-light);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .card-overlay h4 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: white;
-            font-weight: 400;
-        }
-
-        /* 12 unique gradient backgrounds for gallery cards */
-        .grad-1 { background: linear-gradient(145deg, #f7e4e4, #e8b4b8); }
-        .grad-2 { background: linear-gradient(145deg, #fef0d7, #f0c87a); }
-        .grad-3 { background: linear-gradient(145deg, #ece0f3, #c9a7d8); }
-        .grad-4 { background: linear-gradient(145deg, #dfe9dc, #a8c9a0); }
-        .grad-5 { background: linear-gradient(145deg, #e0e8ef, #9bb5cc); }
-        .grad-6 { background: linear-gradient(145deg, #f5e8da, #d4b896); }
-        .grad-7 { background: linear-gradient(145deg, #f2dfe0, #d4a5a8); }
-        .grad-8 { background: linear-gradient(145deg, #f0eadd, #c9bb98); }
-        .grad-9 { background: linear-gradient(145deg, #e8dff0, #b99fd4); }
-        .grad-10 { background: linear-gradient(145deg, #f9e4d4, #e0a87a); }
-        .grad-11 { background: linear-gradient(145deg, #dce8e0, #98c4a8); }
-        .grad-12 { background: linear-gradient(145deg, #e8e0e8, #c4a0c4); }
-
-        /* Gallery card images */
-        .gallery-card img {
+        /* When real images are added */
+        .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .gallery-card:hover img {
-            transform: scale(1.05);
+        .gallery-card:hover .card-image img {
+            transform: scale(1.08);
         }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.3s ease;
+            transform: translateY(10px);
+        }
+
+        .gallery-card:hover .card-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gold-light);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-family: var(--font-body);
+        }
+
+        .card-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 400;
+        }
+
+        /* 12 dramatic gradient placeholders mimicking real makeup photo tones */
+        .bridal-1 { background: linear-gradient(145deg, #d4a574 0%, #8b4513 40%, #cd853f 70%, #daa520 100%); }
+        .engagement-1 { background: linear-gradient(145deg, #e8c4a0 0%, #c9956e 35%, #b8860b 65%, #daa520 100%); }
+        .reception-1 { background: linear-gradient(145deg, #c9a0dc 0%, #8b668b 40%, #9370db 70%, #dda0dd 100%); }
+        .mehendi-1 { background: linear-gradient(145deg, #90b77d 0%, #556b2f 40%, #6b8e23 70%, #8fbc8f 100%); }
+        .hair-1 { background: linear-gradient(145deg, #2c1810 0%, #4a2c2a 35%, #6b3a3a 65%, #8b6969 100%); }
+        .party-1 { background: linear-gradient(145deg, #ffd700 0%, #daa520 35%, #b8860b 65%, #cd853f 100%); }
+        .saree-1 { background: linear-gradient(145deg, #dc143c 0%, #8b0000 40%, #b22222 70%, #cd5c5c 100%); }
+        .bridal-2 { background: linear-gradient(145deg, #f5deb3 0%, #d4a574 35%, #bc8f5f 65%, #c9956e 100%); }
+        .prewedding-1 { background: linear-gradient(145deg, #87ceeb 0%, #4682b4 35%, #5f9ea0 65%, #b0c4de 100%); }
+        .sangeet-1 { background: linear-gradient(145deg, #ff69b4 0%, #db7093 35%, #c71585 65%, #ff1493 100%); }
+        .natural-1 { background: linear-gradient(145deg, #faebd7 0%, #deb887 35%, #d2b48c 65%, #c9956e 100%); }
+        .hd-1 { background: linear-gradient(145deg, #ffe4e1 0%, #ffb6c1 35%, #ff69b4 65%, #dda0dd 100%); }
 
         .gallery-cta {
             text-align: center;
             margin-top: 3rem;
+        }
+
+        .cta-text {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2.5rem;
+            border: 1.5px solid var(--color-gold);
+            color: var(--color-charcoal);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .instagram-btn:hover {
+            background: var(--color-gold);
+            color: white;
+        }
+
+        .instagram-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         /* Testimonials Section */
@@ -1173,8 +1214,8 @@
             }
 
             .gallery-card {
-                width: 260px;
-                height: 330px;
+                width: 250px;
+                height: 320px;
             }
         }
 
@@ -1261,19 +1302,29 @@
             .gallery-card {
                 width: 220px;
                 height: 280px;
-                border-radius: 12px;
+                border-radius: 10px;
             }
 
-            .gallery-scroll-track {
+            .gallery-slider {
                 gap: 1rem;
             }
 
-            .card-overlay h4 {
-                font-size: 1.1rem;
+            .gallery-slider.scroll-left,
+            .gallery-slider.scroll-right {
+                animation-duration: 25s;
             }
 
-            .card-overlay .card-category {
-                font-size: 0.6rem;
+            .card-info {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .card-info h4 {
+                font-size: 1rem;
+            }
+
+            .card-tag {
+                font-size: 0.55rem;
             }
 
             .faq {
@@ -1359,29 +1410,25 @@
             }
 
             .gallery-card {
-                width: 180px;
-                height: 230px;
-                border-radius: 10px;
+                width: 170px;
+                height: 220px;
+                border-radius: 8px;
             }
 
-            .gallery-scroll-track {
+            .gallery-slider {
                 gap: 0.75rem;
             }
 
-            .gallery-card-bg {
-                font-size: 2.5rem;
-            }
-
-            .card-overlay {
+            .card-info {
                 padding: 1rem;
             }
 
-            .card-overlay h4 {
-                font-size: 0.95rem;
+            .card-info h4 {
+                font-size: 0.9rem;
             }
 
-            .card-overlay .card-category {
-                font-size: 0.55rem;
+            .card-tag {
+                font-size: 0.5rem;
             }
 
             .booking-info h3 {
@@ -1458,16 +1505,15 @@
                 <div class="about-image-frame">
                     <!-- REPLACE: Add your photo here -->
                     <!-- <img src="images/about/vennela-photo.jpg" alt="Rajithha Reddy - Makeup Artist"> -->
-                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="about-image-link">
-                        <div class="about-image-styled">
-                            <div class="instagram-icon">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <div class="about-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
                             </div>
-                            <span class="view-text">View Profile</span>
-                            <span class="handle">@vennela_makeover_hairstylist</span>
-                            <span class="followers">14.3K Followers</span>
+                            <p class="placeholder-text">Photo Coming Soon</p>
+                            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="placeholder-link">@vennela_makeover_hairstylist</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
             <div class="about-content">
@@ -1569,194 +1615,194 @@
         </p>
     </section>
 
-    <!-- Gallery Section - Auto-Scrolling Banner -->
-    <section class="gallery" id="gallery">
+    <!-- Gallery Section - Beautiful Auto-Scrolling Portfolio -->
+    <section class="portfolio-gallery" id="gallery">
         <div class="section-header">
             <span class="section-label">Portfolio</span>
             <h2 class="section-title">Our <em>Gallery</em></h2>
             <div class="gold-divider"></div>
         </div>
         
-        <div class="gallery-banner-wrapper">
+        <div class="gallery-showcase">
             <!-- Row 1 - Scrolls Left -->
-            <div class="gallery-row">
-                <div class="gallery-scroll-track scroll-left">
+            <div class="gallery-track">
+                <div class="gallery-slider scroll-left">
                     <!-- Original 6 cards -->
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-1">👰</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Bridal</span>
+                        <div class="card-image bridal-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Bridal</span>
                             <h4>Bridal Makeup</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-2">💍</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Engagement</span>
+                        <div class="card-image engagement-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Engagement</span>
                             <h4>Engagement Looks</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-3">✨</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Party</span>
-                            <h4>Party Glamour</h4>
+                        <div class="card-image reception-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Reception</span>
+                            <h4>Reception Ready</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-4">💇‍♀️</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Hair</span>
-                            <h4>Hair Artistry</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-5">🌿</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Mehendi</span>
+                        <div class="card-image mehendi-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Mehendi</span>
                             <h4>Mehendi Designs</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-6">👗</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Saree</span>
-                            <h4>Saree Styling</h4>
+                        <div class="card-image hair-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Hair</span>
+                            <h4>Hair Artistry</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
+                        <div class="card-image party-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Party</span>
+                            <h4>Party Glamour</h4>
                         </div>
                     </a>
                     <!-- Duplicate for seamless loop -->
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-1">👰</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Bridal</span>
+                        <div class="card-image bridal-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Bridal</span>
                             <h4>Bridal Makeup</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-2">💍</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Engagement</span>
+                        <div class="card-image engagement-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Engagement</span>
                             <h4>Engagement Looks</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-3">✨</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Party</span>
-                            <h4>Party Glamour</h4>
+                        <div class="card-image reception-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Reception</span>
+                            <h4>Reception Ready</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-4">💇‍♀️</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Hair</span>
-                            <h4>Hair Artistry</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-5">🌿</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Mehendi</span>
+                        <div class="card-image mehendi-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Mehendi</span>
                             <h4>Mehendi Designs</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-6">👗</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Saree</span>
-                            <h4>Saree Styling</h4>
+                        <div class="card-image hair-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Hair</span>
+                            <h4>Hair Artistry</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
+                        <div class="card-image party-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Party</span>
+                            <h4>Party Glamour</h4>
                         </div>
                     </a>
                 </div>
             </div>
             
             <!-- Row 2 - Scrolls Right -->
-            <div class="gallery-row">
-                <div class="gallery-scroll-track scroll-right">
+            <div class="gallery-track">
+                <div class="gallery-slider scroll-right">
                     <!-- Original 6 cards -->
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-7">🌟</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Reception</span>
-                            <h4>Reception Ready</h4>
+                        <div class="card-image saree-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Saree</span>
+                            <h4>Saree Styling</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-8">💐</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Pre-Wedding</span>
+                        <div class="card-image bridal-2"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Bridal</span>
+                            <h4>Traditional Bridal</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
+                        <div class="card-image prewedding-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Pre-Wedding</span>
                             <h4>Pre-Wedding Shoot</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-9">💄</div>
-                        <div class="card-overlay">
-                            <span class="card-category">HD Makeup</span>
-                            <h4>HD Bridal Glam</h4>
+                        <div class="card-image sangeet-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Sangeet</span>
+                            <h4>Sangeet Night</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-10">🎀</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Traditional</span>
-                            <h4>Traditional Beauty</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-11">🌸</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Natural</span>
+                        <div class="card-image natural-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Natural</span>
                             <h4>Natural Glow</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-12">💎</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Special</span>
-                            <h4>Special Occasions</h4>
+                        <div class="card-image hd-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">HD Makeup</span>
+                            <h4>HD Bridal Glam</h4>
                         </div>
                     </a>
                     <!-- Duplicate for seamless loop -->
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-7">🌟</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Reception</span>
-                            <h4>Reception Ready</h4>
+                        <div class="card-image saree-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Saree</span>
+                            <h4>Saree Styling</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-8">💐</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Pre-Wedding</span>
+                        <div class="card-image bridal-2"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Bridal</span>
+                            <h4>Traditional Bridal</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
+                        <div class="card-image prewedding-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Pre-Wedding</span>
                             <h4>Pre-Wedding Shoot</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-9">💄</div>
-                        <div class="card-overlay">
-                            <span class="card-category">HD Makeup</span>
-                            <h4>HD Bridal Glam</h4>
+                        <div class="card-image sangeet-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Sangeet</span>
+                            <h4>Sangeet Night</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-10">🎀</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Traditional</span>
-                            <h4>Traditional Beauty</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-11">🌸</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Natural</span>
+                        <div class="card-image natural-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">Natural</span>
                             <h4>Natural Glow</h4>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-card">
-                        <div class="gallery-card-bg grad-12">💎</div>
-                        <div class="card-overlay">
-                            <span class="card-category">Special</span>
-                            <h4>Special Occasions</h4>
+                        <div class="card-image hd-1"></div>
+                        <div class="card-info">
+                            <span class="card-tag">HD Makeup</span>
+                            <h4>HD Bridal Glam</h4>
                         </div>
                     </a>
                 </div>
@@ -1764,7 +1810,9 @@
         </div>
         
         <div class="gallery-cta">
-            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="hero-cta">
+            <p class="cta-text">Follow us for daily transformations & behind-the-scenes</p>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="instagram-btn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 View Full Portfolio on Instagram
             </a>
         </div>
@@ -2077,7 +2125,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.package-card, .gallery-card, .about-content, .about-image, .faq-item').forEach(el => {
+        document.querySelectorAll('.package-card, .gallery-card, .about-content, .about-placeholder, .faq-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
