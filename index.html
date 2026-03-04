@@ -565,25 +565,27 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 300px);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-champagne), var(--color-rose));
+            border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
             display: block;
+            aspect-ratio: 4/5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.5s ease;
         }
 
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         }
 
         .gallery-item img {
@@ -604,43 +606,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(26,26,26,0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.2) 40%, transparent 100%);
             z-index: 1;
-        }
-
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-            z-index: 2;
-        }
-
-        .gallery-item:hover .gallery-item-content {
-            transform: translateY(0);
-        }
-
-        .gallery-item-content h5 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--color-cream);
-            font-weight: 400;
-        }
-
-        .gallery-item-content span {
-            font-size: 0.7rem;
-            color: var(--color-gold);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            transition: opacity 0.4s ease;
         }
 
         .gallery-placeholder {
@@ -650,31 +618,100 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--color-champagne), var(--color-rose));
             font-family: var(--font-display);
             color: var(--color-gold-dark);
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
+            position: relative;
         }
 
         .gallery-placeholder .placeholder-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
+            filter: grayscale(0);
         }
 
-        .gallery-placeholder span {
-            font-size: 1.1rem;
+        .gallery-placeholder .placeholder-label {
+            font-size: 1rem;
             font-style: italic;
             letter-spacing: 0.1em;
             color: var(--color-gold-dark);
-        }
-
-        .gallery-item:hover .gallery-placeholder {
-            background: linear-gradient(135deg, var(--color-rose), var(--color-champagne));
+            opacity: 0.8;
         }
 
         .gallery-item:hover .placeholder-icon {
-            transform: scale(1.2);
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .gallery-item-overlay h5 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--color-cream);
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-item-overlay .gallery-tag {
+            font-size: 0.65rem;
+            color: var(--color-gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .gallery-item-overlay .view-link {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .gallery-item:hover .view-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover .view-link:hover {
+            background: var(--color-gold);
+            color: var(--color-soft-black);
+        }
+
+        /* Gallery color themes for each card */
+        .gallery-item:nth-child(1) .gallery-placeholder {
+            background: linear-gradient(145deg, #f9e8e8, #fce4d6, #f5d5c8);
+        }
+        .gallery-item:nth-child(2) .gallery-placeholder {
+            background: linear-gradient(145deg, #fef3e2, #fde8c8, #fceab7);
+        }
+        .gallery-item:nth-child(3) .gallery-placeholder {
+            background: linear-gradient(145deg, #f0e6f6, #e8d5f5, #e0ccee);
+        }
+        .gallery-item:nth-child(4) .gallery-placeholder {
+            background: linear-gradient(145deg, #e8f0e6, #d5e8d0, #cce0c8);
+        }
+        .gallery-item:nth-child(5) .gallery-placeholder {
+            background: linear-gradient(145deg, #e6ecf0, #d5e0e8, #c8d8e0);
+        }
+        .gallery-item:nth-child(6) .gallery-placeholder {
+            background: linear-gradient(145deg, #f5ede6, #ecdcc8, #e8d5b7);
         }
 
         /* Testimonials Section */
@@ -1071,12 +1108,7 @@
 
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 250px);
-            }
-
-            .gallery-item:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 1;
+                gap: 1.2rem;
             }
 
             .reels-grid {
@@ -1085,6 +1117,10 @@
         }
 
         @media (max-width: 768px) {
+            section {
+                padding: 5rem 4%;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -1096,6 +1132,7 @@
                 justify-content: center;
                 align-items: center;
                 transition: right 0.4s ease;
+                gap: 2rem;
             }
 
             .nav-links.active {
@@ -1106,22 +1143,86 @@
                 display: flex;
             }
 
+            .hero h1 {
+                font-size: clamp(2.2rem, 8vw, 4rem);
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
+            }
+
+            .about-content h3 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .about-content .section-label {
+                text-align: center;
+            }
+
+            .about-content p {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .about-stats {
+                justify-content: center;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.6rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 250px);
+            .service-card {
+                padding: 2rem 1.5rem;
             }
 
-            .gallery-item:nth-child(1) {
-                grid-column: span 1;
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                aspect-ratio: 3/4;
+                border-radius: 10px;
+            }
+
+            .gallery-placeholder .placeholder-icon {
+                font-size: 2.5rem;
+            }
+
+            .gallery-placeholder .placeholder-label {
+                font-size: 0.8rem;
+            }
+
+            .gallery-item-overlay {
+                padding: 1rem;
+            }
+
+            .gallery-item-overlay h5 {
+                font-size: 1rem;
+            }
+
+            .gallery-item-overlay .view-link {
+                opacity: 1;
+                transform: translateY(0);
+                font-size: 0.55rem;
+                padding: 0.4rem 0.8rem;
             }
 
             .reels-grid {
@@ -1129,16 +1230,55 @@
                 gap: 1rem;
             }
 
+            .reel-card {
+                border-radius: 10px;
+            }
+
+            .reel-placeholder span {
+                font-size: 2rem;
+            }
+
+            .reel-placeholder p {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.3rem;
+            }
+
             .booking-container {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .booking-form {
+                padding: 2rem 1.5rem;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .about-stats {
-                justify-content: center;
+            .section-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+
+            .footer-social {
+                gap: 1rem;
+            }
+
+            .footer-social a {
+                width: 40px;
+                height: 40px;
+                font-size: 0.7rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.65rem;
             }
 
             .whatsapp-float {
@@ -1151,6 +1291,78 @@
             .whatsapp-float svg {
                 width: 25px;
                 height: 25px;
+            }
+
+            .hero-cta {
+                padding: 0.8rem 2rem;
+                font-size: 0.65rem;
+            }
+
+            .gold-divider {
+                margin: 1.5rem auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 4rem 5%;
+            }
+
+            .about-stats {
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .gallery-item {
+                aspect-ratio: 3/4;
+                border-radius: 8px;
+            }
+
+            .gallery-placeholder .placeholder-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .gallery-placeholder .placeholder-label {
+                font-size: 0.7rem;
+            }
+
+            .gallery-item-overlay h5 {
+                font-size: 0.85rem;
+            }
+
+            .gallery-item-overlay .gallery-tag {
+                font-size: 0.55rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .reels-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .reel-placeholder span {
+                font-size: 1.8rem;
+            }
+
+            .reel-placeholder p {
+                font-size: 0.8rem;
+            }
+
+            .booking-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-details li {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1292,57 +1504,73 @@
             <span class="section-label">Portfolio</span>
             <h2 class="section-title">Our <em>Gallery</em></h2>
             <div class="gold-divider"></div>
-            <p style="color: #666; max-width: 600px; margin: 0 auto; margin-top: 1rem;">Tap any image to view our complete portfolio on Instagram</p>
+            <p style="color: #666; max-width: 600px; margin: 0 auto; margin-top: 1rem;">Explore our stunning bridal transformations on Instagram</p>
         </div>
         <div class="gallery-grid">
             <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
                 <div class="gallery-placeholder">
                     <div class="placeholder-icon">👰</div>
-                    <span>Bridal Makeup</span>
+                    <span class="placeholder-label">Bridal Makeup</span>
                 </div>
-                <div class="gallery-item-content">
-                    <span>View on Instagram</span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Bridal</span>
                     <h5>Bridal Collection</h5>
+                    <span class="view-link">View on Instagram →</span>
                 </div>
             </a>
             <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
                 <div class="gallery-placeholder">
                     <div class="placeholder-icon">💍</div>
-                    <span>Engagement</span>
+                    <span class="placeholder-label">Engagement</span>
                 </div>
-                <div class="gallery-item-content">
-                    <span>View on Instagram</span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Engagement</span>
                     <h5>Engagement Looks</h5>
+                    <span class="view-link">View on Instagram →</span>
                 </div>
             </a>
             <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
                 <div class="gallery-placeholder">
                     <div class="placeholder-icon">✨</div>
-                    <span>Party Makeup</span>
+                    <span class="placeholder-label">Party Glam</span>
                 </div>
-                <div class="gallery-item-content">
-                    <span>View on Instagram</span>
-                    <h5>Party Glam</h5>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Party</span>
+                    <h5>Party Glamour</h5>
+                    <span class="view-link">View on Instagram →</span>
                 </div>
             </a>
             <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
                 <div class="gallery-placeholder">
                     <div class="placeholder-icon">💇‍♀️</div>
-                    <span>Hair Styling</span>
+                    <span class="placeholder-label">Hair Styling</span>
                 </div>
-                <div class="gallery-item-content">
-                    <span>View on Instagram</span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Hair</span>
                     <h5>Hair Artistry</h5>
+                    <span class="view-link">View on Instagram →</span>
                 </div>
             </a>
             <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
                 <div class="gallery-placeholder">
                     <div class="placeholder-icon">🌿</div>
-                    <span>Mehendi</span>
+                    <span class="placeholder-label">Mehendi Art</span>
                 </div>
-                <div class="gallery-item-content">
-                    <span>View on Instagram</span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Mehendi</span>
                     <h5>Mehendi Designs</h5>
+                    <span class="view-link">View on Instagram →</span>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">👗</div>
+                    <span class="placeholder-label">Saree Draping</span>
+                </div>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-tag">Saree</span>
+                    <h5>Saree Draping</h5>
+                    <span class="view-link">View on Instagram →</span>
                 </div>
             </a>
         </div>
