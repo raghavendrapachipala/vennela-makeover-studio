@@ -577,6 +577,8 @@
             overflow: hidden;
             background: linear-gradient(135deg, var(--color-champagne), var(--color-rose));
             cursor: pointer;
+            text-decoration: none;
+            display: block;
         }
 
         .gallery-item:nth-child(1) {
@@ -645,12 +647,34 @@
             width: 100%;
             height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, var(--color-champagne), var(--color-rose));
             font-family: var(--font-display);
-            font-size: 0.9rem;
             color: var(--color-gold-dark);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-placeholder .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-placeholder span {
+            font-size: 1.1rem;
             font-style: italic;
+            letter-spacing: 0.1em;
+            color: var(--color-gold-dark);
+        }
+
+        .gallery-item:hover .gallery-placeholder {
+            background: linear-gradient(135deg, var(--color-rose), var(--color-champagne));
+        }
+
+        .gallery-item:hover .placeholder-icon {
+            transform: scale(1.2);
         }
 
         /* Testimonials Section */
@@ -1181,10 +1205,14 @@
             <div class="about-image">
                 <div class="about-image-frame">
                     <!-- REPLACE: Add your photo here -->
-                    <!-- <img src="images/about/vennela-photo.jpg" alt="Vennela - Makeup Artist"> -->
-                    <div class="about-image-placeholder">
-                        <span>Your Photo Here</span>
-                    </div>
+                    <!-- <img src="images/about/vennela-photo.jpg" alt="Rajithha Reddy - Makeup Artist"> -->
+                    <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="about-image-placeholder" style="text-decoration: none;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
+                            <span>View Profile on Instagram</span>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--color-gold);">@vennela_makeover_hairstylist</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="about-content">
@@ -1264,45 +1292,64 @@
             <span class="section-label">Portfolio</span>
             <h2 class="section-title">Our <em>Gallery</em></h2>
             <div class="gold-divider"></div>
+            <p style="color: #666; max-width: 600px; margin: 0 auto; margin-top: 1rem;">Tap any image to view our complete portfolio on Instagram</p>
         </div>
         <div class="gallery-grid">
-            <!-- REPLACE: Add your gallery images -->
-            <!-- Example: <img src="images/gallery/bridal-1.jpg" alt="Bridal Makeup Look"> -->
-            <div class="gallery-item">
-                <div class="gallery-placeholder">Featured Bridal Look</div>
-                <div class="gallery-item-content">
-                    <span>Bridal</span>
-                    <h5>South Indian Bride</h5>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">👰</div>
+                    <span>Bridal Makeup</span>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">Look 2</div>
                 <div class="gallery-item-content">
+                    <span>View on Instagram</span>
+                    <h5>Bridal Collection</h5>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">💍</div>
                     <span>Engagement</span>
-                    <h5>Golden Hour Glow</h5>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">Look 3</div>
                 <div class="gallery-item-content">
-                    <span>Party</span>
-                    <h5>Evening Glamour</h5>
+                    <span>View on Instagram</span>
+                    <h5>Engagement Looks</h5>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">Look 4</div>
+            </a>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">✨</div>
+                    <span>Party Makeup</span>
+                </div>
                 <div class="gallery-item-content">
-                    <span>Hair</span>
-                    <h5>Elegant Updo</h5>
+                    <span>View on Instagram</span>
+                    <h5>Party Glam</h5>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">Look 5</div>
+            </a>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">💇‍♀️</div>
+                    <span>Hair Styling</span>
+                </div>
                 <div class="gallery-item-content">
-                    <span>Bridal</span>
-                    <h5>Reception Ready</h5>
+                    <span>View on Instagram</span>
+                    <h5>Hair Artistry</h5>
                 </div>
-            </div>
+            </a>
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="gallery-item">
+                <div class="gallery-placeholder">
+                    <div class="placeholder-icon">🌿</div>
+                    <span>Mehendi</span>
+                </div>
+                <div class="gallery-item-content">
+                    <span>View on Instagram</span>
+                    <h5>Mehendi Designs</h5>
+                </div>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://www.instagram.com/vennela_makeover_hairstylist/" target="_blank" class="hero-cta">
+                View Full Portfolio on Instagram
+            </a>
         </div>
     </section>
 
